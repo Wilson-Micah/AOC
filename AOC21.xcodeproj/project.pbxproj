@@ -16,6 +16,7 @@
 		75F415AB275B2C440096D378 /* Day4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415AA275B2C440096D378 /* Day4.swift */; };
 		75F415AE275D5BB70096D378 /* Day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415AD275D5BB70096D378 /* Day5.swift */; };
 		75F415B1275DCFAC0096D378 /* Day6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415B0275DCFAC0096D378 /* Day6.swift */; };
+		75F415B4275F21500096D378 /* Day7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415B3275F21500096D378 /* Day7.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,7 @@
 		75F415AA275B2C440096D378 /* Day4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day4.swift; sourceTree = "<group>"; };
 		75F415AD275D5BB70096D378 /* Day5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5.swift; sourceTree = "<group>"; };
 		75F415B0275DCFAC0096D378 /* Day6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day6.swift; sourceTree = "<group>"; };
+		75F415B3275F21500096D378 /* Day7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day7.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				75F415A9275B2C350096D378 /* Day4 */,
 				75F415AC275D5BAA0096D378 /* Day5 */,
 				75F415AF275DCF9F0096D378 /* Day6 */,
+				75F415B2275F21440096D378 /* Day7 */,
 			);
 			path = AOC21;
 			sourceTree = "<group>";
@@ -131,6 +134,14 @@
 				75F415B0275DCFAC0096D378 /* Day6.swift */,
 			);
 			path = Day6;
+			sourceTree = "<group>";
+		};
+		75F415B2275F21440096D378 /* Day7 */ = {
+			isa = PBXGroup;
+			children = (
+				75F415B3275F21500096D378 /* Day7.swift */,
+			);
+			path = Day7;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +215,7 @@
 				75F415A8275ADA9D0096D378 /* Day3.swift in Sources */,
 				75F415A5275AD7C40096D378 /* Day2.swift in Sources */,
 				75F415A2275ACFEE0096D378 /* Day1.swift in Sources */,
+				75F415B4275F21500096D378 /* Day7.swift in Sources */,
 				75F41594275ACD800096D378 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
