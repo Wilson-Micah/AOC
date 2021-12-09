@@ -8,7 +8,7 @@
 @_exported import Algorithms
 import Foundation
 
-let day = Day8()
+let day = Day9()
 let startDate = Date()
 let part1 = day.part1()
 let part2 = day.part2()
