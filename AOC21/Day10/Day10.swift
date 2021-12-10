@@ -8,15 +8,18 @@
 import Foundation
 
 extension String.Element {
-    func matches(_ character: String.Element) -> Bool {
-        switch (self, character) {
-        case ("(", ")"),
-            ("[", "]"),
-            ("{", "}"),
-            ("<", ">"):
-            return true
+    var closingBacket: String.Element {
+        switch self {
+        case "(":
+            return ")"
+        case "[":
+            return "]"
+        case "{":
+            return "}"
+        case "<":
+            return ">"
         default:
-            return false
+            return " "
         }
     }
     
@@ -42,7 +45,7 @@ struct Day10: Day {
             for char in Array(line) {
                 if char.isOpenBracket {
                     stack.append(char)
-                } else if stack.popLast()?.matches(char) == false {
+                } else if stack.popLast()?.closingBacket != char {
                     invalidCharacters.append(char)
                     break
                 }
@@ -68,21 +71,20 @@ struct Day10: Day {
     func part2() -> String {
         let input = input.lines
         var completions = [[String.Element]]()
-        let chars: [String.Element] = [")", "]", "}", ">"]
         
         outer: for line in input {
             var stack = [String.Element]()
             for char in Array(line) {
                 if char.isOpenBracket {
                     stack.append(char)
-                } else if stack.popLast()?.matches(char) == false {
+                } else if stack.popLast()?.closingBacket != char {
                     continue outer
                 }
             }
             
             var completion = [String.Element]()
             for char in stack.reversed() {
-                completion.append(chars.first(where: { char.matches($0) })!)
+                completion.append(char.closingBacket)
             }
             completions.append(completion)
         }
