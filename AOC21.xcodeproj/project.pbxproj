@@ -19,6 +19,7 @@
 		75F415B4275F21500096D378 /* Day7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415B3275F21500096D378 /* Day7.swift */; };
 		75F415B7276072B20096D378 /* Day8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415B6276072B20096D378 /* Day8.swift */; };
 		75F415BA2761C88B0096D378 /* Day9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415B92761C88B0096D378 /* Day9.swift */; };
+		75F415BD276314FA0096D378 /* Day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415BC276314FA0096D378 /* Day10.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,7 @@
 		75F415B3275F21500096D378 /* Day7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day7.swift; sourceTree = "<group>"; };
 		75F415B6276072B20096D378 /* Day8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day8.swift; sourceTree = "<group>"; };
 		75F415B92761C88B0096D378 /* Day9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day9.swift; sourceTree = "<group>"; };
+		75F415BC276314FA0096D378 /* Day10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				75F415B2275F21440096D378 /* Day7 */,
 				75F415B5276072A80096D378 /* Day8 */,
 				75F415B82761C8810096D378 /* Day9 */,
+				75F415BB276314EB0096D378 /* Day10 */,
 			);
 			path = AOC21;
 			sourceTree = "<group>";
@@ -166,6 +169,14 @@
 			path = Day9;
 			sourceTree = "<group>";
 		};
+		75F415BB276314EB0096D378 /* Day10 */ = {
+			isa = PBXGroup;
+			children = (
+				75F415BC276314FA0096D378 /* Day10.swift */,
+			);
+			path = Day10;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,6 +246,7 @@
 				75F415B1275DCFAC0096D378 /* Day6.swift in Sources */,
 				75F415AE275D5BB70096D378 /* Day5.swift in Sources */,
 				75F415AB275B2C440096D378 /* Day4.swift in Sources */,
+				75F415BD276314FA0096D378 /* Day10.swift in Sources */,
 				75F415A8275ADA9D0096D378 /* Day3.swift in Sources */,
 				75F415BA2761C88B0096D378 /* Day9.swift in Sources */,
 				75F415A5275AD7C40096D378 /* Day2.swift in Sources */,
