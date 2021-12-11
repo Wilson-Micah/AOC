@@ -52,6 +52,16 @@ public extension String {
             partialResult.append(lines.map { String($0[index]) })
         }
     }
+    
+    var gridNoSeparator: [[Int]] {
+        self.components(separatedBy: .newlines)
+            .map {
+                Array($0)
+            }
+            .map { row in
+                row.map { Int(String($0))! }
+            }
+    }
 }
 
 public extension Collection where Element == String {
