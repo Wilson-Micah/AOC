@@ -36,7 +36,7 @@ import Foundation
 //runAllDays()
 
 let startDate = Date()
-let day = Day11()
+let day = Day12()
 let part1 = day.part1()
 let part2 = day.part2()
 
