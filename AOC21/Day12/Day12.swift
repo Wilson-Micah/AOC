@@ -8,7 +8,7 @@
 import Foundation
 
 struct Day12: Day {
-    enum DuplicationStrategy {
+    enum LittleCaveDuplicationStrategy {
         case notAllowed
         case limitReached
         case limitNotReached
@@ -28,7 +28,7 @@ struct Day12: Day {
         cave: [String: Set<String>],
         position: String = "start",
         visited: Set<String> = [],
-        duplicationStrategy: DuplicationStrategy
+        duplicationStrategy: LittleCaveDuplicationStrategy
     ) -> Int {
         var duplicationStrategy = duplicationStrategy
         var visited = visited

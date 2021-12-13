@@ -19,7 +19,22 @@ import Foundation
 //        Day7(),
 //        Day8(),
 //        Day9(),
-//        Day10()
+//        Day10(),
+//        Day11(),
+//        Day12(),
+//        Day13(),
+//        Day14(),
+//        Day15(),
+//        Day16(),
+//        Day17(),
+//        Day18(),
+//        Day19(),
+//        Day20(),
+//        Day21(),
+//        Day22(),
+//        Day23(),
+//        Day24(),
+//        Day25()
 //    ]
 //
 //    for day in days {
@@ -36,11 +51,10 @@ import Foundation
 //runAllDays()
 
 let startDate = Date()
-let day = Day12()
+let day = Day13()
 let part1 = day.part1()
 let part2 = day.part2()
 
 print("Part 1:", part1)
 print("Part 2:", part2)
 print("Completed in", Date().timeIntervalSince(startDate))
-
