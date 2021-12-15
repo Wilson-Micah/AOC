@@ -55,18 +55,19 @@ extension Day {
             
             seen.insert(pos)
             
-            if pos.x > 0 {
+            if pos.x > 0, !seen.contains(.init(x: pos.x - 1, y: pos.y)) {
                 queue.insert((Point(x: pos.x - 1, y: pos.y), distance + grid[pos.x - 1][pos.y]))
             }
-            if pos.y > 0 {
+            
+            if pos.y > 0, !seen.contains(.init(x: pos.x, y: pos.y - 1)) {
                 queue.insert((Point(x: pos.x, y: pos.y - 1), distance + grid[pos.x][pos.y - 1]))
             }
             
-            if pos.x < grid.count - 1 {
+            if pos.x < grid.count - 1, !seen.contains(.init(x: pos.x + 1, y: pos.y)) {
                 queue.insert((Point(x: pos.x + 1, y: pos.y), distance + grid[pos.x + 1][pos.y]))
             }
             
-            if pos.y < grid.count - 1 {
+            if pos.y < grid.count - 1, !seen.contains(.init(x: pos.x, y: pos.y + 1)) {
                 queue.insert((Point(x: pos.x, y: pos.y + 1), distance + grid[pos.x][pos.y + 1]))
             }
         }
