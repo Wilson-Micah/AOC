@@ -24,6 +24,9 @@
 		75F415C52765B8950096D378 /* Day12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415C42765B8950096D378 /* Day12.swift */; };
 		75F415C82765D0830096D378 /* Day13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415C72765D0830096D378 /* Day13.swift */; };
 		75F415D02767128E0096D378 /* Day14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415CF2767128E0096D378 /* Day14.swift */; };
+		75F415D3276875B50096D378 /* Day15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415D2276875B50096D378 /* Day15.swift */; };
+		75F415D52769E1EA0096D378 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415D42769E1EA0096D378 /* Heap.swift */; };
+		75F415D82769E3420096D378 /* Day16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F415D72769E3420096D378 /* Day16.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +59,9 @@
 		75F415C42765B8950096D378 /* Day12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day12.swift; sourceTree = "<group>"; };
 		75F415C72765D0830096D378 /* Day13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day13.swift; sourceTree = "<group>"; };
 		75F415CF2767128E0096D378 /* Day14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day14.swift; sourceTree = "<group>"; };
+		75F415D2276875B50096D378 /* Day15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day15.swift; sourceTree = "<group>"; };
+		75F415D42769E1EA0096D378 /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
+		75F415D72769E3420096D378 /* Day16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day16.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,7 @@
 			children = (
 				75F41593275ACD800096D378 /* main.swift */,
 				75F4159D275ACE370096D378 /* Day.swift */,
+				75F415D42769E1EA0096D378 /* Heap.swift */,
 				75F4159F275ACF700096D378 /* Day1 */,
 				75F415A3275AD7B30096D378 /* Day2 */,
 				75F415A6275ADA8A0096D378 /* Day3 */,
@@ -105,6 +112,8 @@
 				75F415C32765B88A0096D378 /* Day12 */,
 				75F415C62765D0760096D378 /* Day13 */,
 				75F415CE276712840096D378 /* Day14 */,
+				75F415D1276875A40096D378 /* Day15 */,
+				75F415D62769E3320096D378 /* Day16 */,
 			);
 			path = AOC21;
 			sourceTree = "<group>";
@@ -221,6 +230,22 @@
 			path = Day14;
 			sourceTree = "<group>";
 		};
+		75F415D1276875A40096D378 /* Day15 */ = {
+			isa = PBXGroup;
+			children = (
+				75F415D2276875B50096D378 /* Day15.swift */,
+			);
+			path = Day15;
+			sourceTree = "<group>";
+		};
+		75F415D62769E3320096D378 /* Day16 */ = {
+			isa = PBXGroup;
+			children = (
+				75F415D72769E3420096D378 /* Day16.swift */,
+			);
+			path = Day16;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -286,6 +311,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				75F4159E275ACE370096D378 /* Day.swift in Sources */,
+				75F415D82769E3420096D378 /* Day16.swift in Sources */,
+				75F415D3276875B50096D378 /* Day15.swift in Sources */,
 				75F415C027631C820096D378 /* Day11.swift in Sources */,
 				75F415B7276072B20096D378 /* Day8.swift in Sources */,
 				75F415B1275DCFAC0096D378 /* Day6.swift in Sources */,
@@ -293,6 +320,7 @@
 				75F415AB275B2C440096D378 /* Day4.swift in Sources */,
 				75F415BD276314FA0096D378 /* Day10.swift in Sources */,
 				75F415A8275ADA9D0096D378 /* Day3.swift in Sources */,
+				75F415D52769E1EA0096D378 /* Heap.swift in Sources */,
 				75F415C82765D0830096D378 /* Day13.swift in Sources */,
 				75F415D02767128E0096D378 /* Day14.swift in Sources */,
 				75F415BA2761C88B0096D378 /* Day9.swift in Sources */,

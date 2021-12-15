@@ -10,7 +10,7 @@ import Foundation
 struct Day4: Day {
     func checkBoard(_ board: [[String]]) -> Bool {
         for row in board.indices {
-            if board[row].allSatisfy { $0 == "*" } {
+            if board[row].allSatisfy({ $0 == "*" }) {
                 return true
             }
             var bingo = true
