@@ -5,7 +5,6 @@
 //  Created by Micah Wilson on 12/3/21.
 //
 
-@_exported import Algorithms
 import Foundation
 
 //func runAllDays() {

@@ -12,7 +12,7 @@ struct Day15: Day {
     func part1() -> String {
         let grid = input.gridNoSeparator
         let end = Point(x: grid.count - 1, y: grid.count - 1)
-        return "\(dijkstras(grid: grid, start: .init(x: 0, y: 0), end: end))"
+        return "\(grid.shortestPath(start: .init(x: 0, y: 0), end: end))"
     }
     
     func part2() -> String {
@@ -32,46 +32,6 @@ struct Day15: Day {
         }
         
         let end = Point(x: largeGrid.count - 1, y: largeGrid.count - 1)
-        return "\(dijkstras(grid: largeGrid, start: .init(x: 0, y: 0), end: end))"
-    }
-}
-
-extension Day {
-    func dijkstras(grid: [[Int]], start: Point, end: Point) -> Int {
-        var seen = Set<Point>()
-        var queue = Heap(array: [(start, 0)], sort: { $0.1 < $1.1 })
-        var count = 0
-        while !queue.isEmpty {
-            count += 1
-            let (pos, distance) = queue.peek()!
-            queue.remove()
-            if pos == end {
-                return distance
-            }
-            
-            if seen.contains(pos) {
-                continue
-            }
-            
-            seen.insert(pos)
-            
-            if pos.x > 0, !seen.contains(.init(x: pos.x - 1, y: pos.y)) {
-                queue.insert((Point(x: pos.x - 1, y: pos.y), distance + grid[pos.x - 1][pos.y]))
-            }
-            
-            if pos.y > 0, !seen.contains(.init(x: pos.x, y: pos.y - 1)) {
-                queue.insert((Point(x: pos.x, y: pos.y - 1), distance + grid[pos.x][pos.y - 1]))
-            }
-            
-            if pos.x < grid.count - 1, !seen.contains(.init(x: pos.x + 1, y: pos.y)) {
-                queue.insert((Point(x: pos.x + 1, y: pos.y), distance + grid[pos.x + 1][pos.y]))
-            }
-            
-            if pos.y < grid.count - 1, !seen.contains(.init(x: pos.x, y: pos.y + 1)) {
-                queue.insert((Point(x: pos.x, y: pos.y + 1), distance + grid[pos.x][pos.y + 1]))
-            }
-        }
-        
-        return 0
+        return "\(largeGrid.shortestPath(start: .init(x: 0, y: 0), end: end))"
     }
 }
