@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75516D73276C503900E56211 /* Day17.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75516D72276C503900E56211 /* Day17.swift */; };
 		75F41594275ACD800096D378 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F41593275ACD800096D378 /* main.swift */; };
 		75F4159C275ACD9F0096D378 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 75F4159B275ACD9F0096D378 /* Algorithms */; };
 		75F4159E275ACE370096D378 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4159D275ACE370096D378 /* Day.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		75516D72276C503900E56211 /* Day17.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day17.swift; sourceTree = "<group>"; };
 		75F41590275ACD800096D378 /* AOC21 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AOC21; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F41593275ACD800096D378 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		75F4159D275ACE370096D378 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75516D71276C502B00E56211 /* Day17 */ = {
+			isa = PBXGroup;
+			children = (
+				75516D72276C503900E56211 /* Day17.swift */,
+			);
+			path = Day17;
+			sourceTree = "<group>";
+		};
 		75F41587275ACD800096D378 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +124,7 @@
 				75F415CE276712840096D378 /* Day14 */,
 				75F415D1276875A40096D378 /* Day15 */,
 				75F415D62769E3320096D378 /* Day16 */,
+				75516D71276C502B00E56211 /* Day17 */,
 			);
 			path = AOC21;
 			sourceTree = "<group>";
@@ -334,6 +345,7 @@
 				75F415BA2761C88B0096D378 /* Day9.swift in Sources */,
 				75F415A5275AD7C40096D378 /* Day2.swift in Sources */,
 				75F415A2275ACFEE0096D378 /* Day1.swift in Sources */,
+				75516D73276C503900E56211 /* Day17.swift in Sources */,
 				75F415C52765B8950096D378 /* Day12.swift in Sources */,
 				75F415B4275F21500096D378 /* Day7.swift in Sources */,
 				75F41594275ACD800096D378 /* main.swift in Sources */,

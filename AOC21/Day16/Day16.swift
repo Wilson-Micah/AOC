@@ -10,14 +10,12 @@ import Foundation
 
 struct Day16: Day {
     func part1() -> String {
-        let input = input
         var binaryStrings = Array(input.hexToBinary).map(String.init)
         let packet = loadPacket(data: &binaryStrings)
         return "\(packet.summedVersion)"
     }
     
     func part2() -> String {
-        let input = input
         var binaryStrings = Array(input.hexToBinary).map(String.init)
         let packet = loadPacket(data: &binaryStrings)
         return "\(packet.result)"
