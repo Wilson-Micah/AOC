@@ -16,46 +16,17 @@ extension AOC21 {
             for col in -1..<(image.count + 1) {
                 enhanced.append([])
                 for row in -1..<(image[0].count + 1) {
-                    let positions = [
-                        Point(x: col - 1, y: row - 1),
-                        Point(x: col, y: row - 1),
-                        Point(x: col + 1, y: row - 1),
-                        Point(x: col - 1, y: row),
-                        Point(x: col, y: row),
-                        Point(x: col + 1, y: row),
-                        Point(x: col - 1, y: row + 1),
-                        Point(x: col, y: row + 1),
-                        Point(x: col + 1, y: row + 1)
-                    ]
+                    var string = ""
+                    image.traverseAdjacentIncludingSelf(point: Point(x: col, y: row)) { value in
+                        string.append(value ?? (infiniteOn && input.first == "#" ? "#" : "."))
+                    }
                     
-                    let binaryString = positions
-                        .map { point -> String in
-                            if point.x < 0 || point.y < 0 || point.x >= image.count || point.y >= image[0].count {
-                                return infiniteOn && input.first == "#" ? "#" : "."
-                            } else {
-                                return image[point.x][point.y]
-                            }
-                        }
-                        .joined()
-                        .replacingOccurrences(of: ".", with: "0")
-                        .replacingOccurrences(of: "#", with: "1")
-                    
+                    let binaryString = string.replacingOccurrences(of: ".", with: "0").replacingOccurrences(of: "#", with: "1")
                     let result = Int(binaryString, radix: 2)!
                     enhanced[col + 1].append(input[result])
                 }
             }
             return enhanced
-        }
-        
-        func printGrid(_ grid: [[String]]) {
-            var string = ""
-            for col in grid.indices {
-                for row in grid[col].indices {
-                    string += grid[row][col]
-                }
-                string += "\n"
-            }
-            print(string)
         }
         
         func enhanceImage(count: Int) -> [String] {
