@@ -7,7 +7,6 @@
 
 import Algorithms
 import Foundation
-import QuartzCore
 
 struct Rotation: Hashable {
     var point: Point3D

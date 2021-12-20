@@ -43,6 +43,10 @@ public extension String {
         components(separatedBy: .newlines)
     }
     
+    var blankLines: [String] {
+        components(separatedBy: "\n\n")
+    }
+    
     var linesAndSpaces: [String] {
         components(separatedBy: .whitespacesAndNewlines)
     }
