@@ -154,6 +154,97 @@ extension Int {
     }
 }
 
+extension Array where Element == [String] {
+    func printGrid() {
+        var string = ""
+        for col in self[0].indices {
+            for row in self.indices {
+                string += self[row][col]
+            }
+            string += "\n"
+        }
+        print(string)
+    }
+}
+
+extension Array where Element: Collection, Element.Index == Int, Element.Element: Hashable {
+    func count(of: Element.Element) -> Int {
+        var count = 0
+        traverse { point in
+            count += self[point.x][point.y] == of ? 1 : 0
+        }
+        return count
+    }
+    
+    func traverse(indexPath: (Point) -> Void) {
+        for col in self.indices {
+            for row in self[col].indices {
+                indexPath(Point(x: col, y: row))
+            }
+        }
+    }
+    
+    func traverseAdjacent(point: Point, value: (Element.Element?) -> Void) {
+        point.adjacent.forEach { point in
+            if point.x < 0 || point.y < 0 || point.x >= self.count || point.y >= self[0].count {
+                value(nil)
+            } else {
+                value(self[point.x][point.y])
+            }
+        }
+    }
+    
+    func traverseAdjacentIncludingSelf(point: Point, value: (Element.Element?) -> Void) {
+        point.adjacentInclusive.forEach { point in
+            if point.x < 0 || point.y < 0 || point.x >= self.count || point.y >= self[0].count {
+                value(nil)
+            } else {
+                value(self[point.x][point.y])
+            }
+        }
+    }
+    
+    func traverseNeighbors(point: Point, value: (Element.Element?) -> Void) {
+        point.neighbors.forEach { point in
+            if point.x < 0 || point.y < 0 || point.x >= self.count || point.y >= self[0].count {
+                value(nil)
+            } else {
+                value(self[point.x][point.y])
+            }
+        }
+    }
+    
+    func traverseNeighborsIncludingSelf(point: Point, value: (Element.Element?) -> Void) {
+        point.neighborsInclusive.forEach { point in
+            if point.x < 0 || point.y < 0 || point.x >= self.count || point.y >= self[0].count {
+                value(nil)
+            } else {
+                value(self[point.x][point.y])
+            }
+        }
+    }
+    
+    func traverseAdjacentInSight(point: Point, query: Set<Element.Element>, value: (Element.Element, Point) -> Void) {
+        point.adjacent.forEach { p in
+            var pos = p
+            var found = false
+            while !found {
+                if pos.x < 0 || pos.y < 0 || pos.x >= self.count || pos.y >= self[0].count {
+                    found = true
+                } else if query.contains(self[pos.x][pos.y]) {
+                    value(self[pos.x][pos.y], pos)
+                    found = true
+                } else {
+                    pos.x += pos.x < point.x ? -1 : 0
+                    pos.x += pos.x > point.x ? 1 : 0
+                    pos.y += pos.y < point.y ? -1 : 0
+                    pos.y += pos.y > point.y ? 1 : 0
+                }
+            }
+        }
+    }
+}
+
 extension Array where Element == [Int] {
     func shortestPath(start: Point, end: Point) -> Int {
         dijkstras(start: start, end: end)

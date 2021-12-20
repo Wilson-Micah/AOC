@@ -12,6 +12,54 @@ struct Point: Hashable {
     var y: Int
 }
 
+extension Point {
+    var neighbors: [Point] {
+        [
+            Point(x: x, y: y - 1),
+            Point(x: x - 1, y: y),
+            Point(x: x + 1, y: y),
+            Point(x: x, y: y + 1),
+        ]
+    }
+    
+    var neighborsInclusive: [Point] {
+        [
+            Point(x: x, y: y - 1),
+            Point(x: x - 1, y: y),
+            self,
+            Point(x: x + 1, y: y),
+            Point(x: x, y: y + 1),
+        ]
+    }
+    
+    var adjacent: [Point] {
+        [
+            Point(x: x - 1, y: y - 1),
+            Point(x: x, y: y - 1),
+            Point(x: x + 1, y: y - 1),
+            Point(x: x - 1, y: y),
+            Point(x: x + 1, y: y),
+            Point(x: x - 1, y: y + 1),
+            Point(x: x, y: y + 1),
+            Point(x: x + 1, y: y + 1)
+        ]
+    }
+    
+    var adjacentInclusive: [Point] {
+        [
+            Point(x: x - 1, y: y - 1),
+            Point(x: x, y: y - 1),
+            Point(x: x + 1, y: y - 1),
+            Point(x: x - 1, y: y),
+            self,
+            Point(x: x + 1, y: y),
+            Point(x: x - 1, y: y + 1),
+            Point(x: x, y: y + 1),
+            Point(x: x + 1, y: y + 1)
+        ]
+    }
+}
+
 struct Line: Hashable {
     let start: Point
     let end: Point
