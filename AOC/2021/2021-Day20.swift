@@ -30,7 +30,7 @@ extension AOC21 {
                     
                     let binaryString = positions
                         .map { point -> String in
-                            if point.x < 0 || point.y < 0 || point.x >= image.count || point.y >= image.count {
+                            if point.x < 0 || point.y < 0 || point.x >= image.count || point.y >= image[0].count {
                                 return infiniteOn && input.first == "#" ? "#" : "."
                             } else {
                                 return image[point.x][point.y]
