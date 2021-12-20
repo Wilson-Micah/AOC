@@ -50,7 +50,7 @@ import Foundation
 //runAllDays()
 
 let startDate = Date()
-let day = AOC20.Day9()
+let day = AOC20.Day10()
 let part1 = day.part1()
 let part2 = day.part2()
 
