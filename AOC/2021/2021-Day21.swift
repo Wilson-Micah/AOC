@@ -10,9 +10,12 @@ import Foundation
 extension AOC21 {
     struct Day21: Day {
         func part1() -> String {
+            let input = input.lines.map { line in
+                Int(line.components(separatedBy: ": ")[1])!
+            }
             var dieValue = 0
             var scores = [1: 0, 2: 0]
-            var players = [1: 7, 2: 10]
+            var players = [1: input[0], 2: input[1]]
             
             var player = 1
             var totalRoles = 0
@@ -42,18 +45,25 @@ extension AOC21 {
             var p2Position: Int
             var p1Score: Int
             var p2Score: Int
+            
+            var isFinished: Bool {
+                p1Score >= 21 || p2Score >= 21
+            }
         }
         
         func part2() -> String {
-            var universes = [Score(p1Position: 7, p2Position: 10, p1Score: 0, p2Score: 0): 1]
+            let input = input.lines.map { line in
+                Int(line.components(separatedBy: ": ")[1])!
+            }
+            var universes = [Score(p1Position: input[0], p2Position: input[1], p1Score: 0, p2Score: 0): 1]
             
             var playerOnesTurn = true
-            while universes.keys.contains(where: { $0.p2Score < 21 && $0.p1Score < 21 }) {
+            while universes.keys.contains(where: { !$0.isFinished }) {
                 let values = [3: 1, 4: 3, 5: 6, 6: 7, 7: 6, 8: 3, 9: 1]
 
-                var unis = universes.filter { $0.key.p1Score >= 21 || $0.key.p2Score >= 21 }
+                var unis = universes.filter { $0.key.isFinished }
                 for (key, value) in values {
-                    for (var scoreKey, scoreValue) in universes where scoreKey.p1Score < 21 && scoreKey.p2Score < 21 {
+                    for (var scoreKey, scoreValue) in universes where !scoreKey.isFinished {
                         if playerOnesTurn {
                             scoreKey.p1Position = (scoreKey.p1Position + key - 1) % 10 + 1
                             scoreKey.p1Score += scoreKey.p1Position
