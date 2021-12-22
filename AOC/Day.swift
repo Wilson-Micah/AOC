@@ -143,6 +143,10 @@ public extension Collection where Element == String {
         compactMap { Int($0) }
     }
     
+    var optionalInts: [Int?] {
+        map { Int($0) }
+    }
+    
     var doubles: [Double] {
         compactMap { Double($0) }
     }
