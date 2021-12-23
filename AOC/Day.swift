@@ -161,9 +161,9 @@ extension Int {
 extension Array where Element == [String] {
     func printGrid() {
         var string = ""
-        for col in self[0].indices {
-            for row in self.indices {
-                string += self[row][col]
+        for col in self {
+            for row in col {
+                string += row
             }
             string += "\n"
         }
