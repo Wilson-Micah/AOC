@@ -154,17 +154,6 @@ extension AOC21 {
             static var consumptionMap: [String: Int] {
                 ["A": 1, "B": 10, "C": 100, "D": 1000]
             }
-            
-            func printDiagram() {
-                var string = ""
-                for col in diagram {
-                    for row in col {
-                        string += row
-                    }
-                    string += "\n"
-                }
-                print(string)
-            }
         }
         
         func shortestPath(_ diagram: [[String]]) -> Int {
