@@ -131,29 +131,17 @@ extension AOC21 {
                 return true
             }
             
-            static var validSittingXIndexes: [Int] {
-                return [1, 2, 4, 6, 8, 10, 11]
-            }
+            static let validSittingXIndexes = [1, 2, 4, 6, 8, 10, 11]
             
-            static var hallwayYIndex: Int {
-                1
-            }
+            static let hallwayYIndex = 1
             
-            static var caveXIndexes: [Int] {
-                [3, 5, 7, 9]
-            }
+            static let caveXIndexes = [3, 5, 7, 9]
             
-            static var caveXMap: [String: Int] {
-                ["A": 3, "B": 5, "C": 7, "D": 9]
-            }
+            static let caveXMap = ["A": 3, "B": 5, "C": 7, "D": 9]
             
-            static var caveMap: [Int: String] {
-                [3: "A", 5: "B", 7: "C", 9: "D"]
-            }
+            static let caveMap = [3: "A", 5: "B", 7: "C", 9: "D"]
             
-            static var consumptionMap: [String: Int] {
-                ["A": 1, "B": 10, "C": 100, "D": 1000]
-            }
+            static let consumptionMap = ["A": 1, "B": 10, "C": 100, "D": 1000]
         }
         
         func shortestPath(_ diagram: [[String]]) -> Int {
