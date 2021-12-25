@@ -39,8 +39,8 @@ extension AOC21 {
         
         var minAndMax: (String, String) {
             let instructions = Array(input.components(separatedBy: "inp w\n").map { $0.lines }.dropFirst())
-            var minValue = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-            var maxValue = [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+            var minValue = Array(repeating: 0, count: 14)
+            var maxValue = Array(repeating: 0, count: 14)
             var stack = [(Int, Int)]()
             
             for (var i, chunk) in Array(instructions).enumerated() {
