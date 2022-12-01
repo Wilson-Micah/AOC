@@ -46,7 +46,6 @@ extension AOC21 {
                 }
             }
             
-            
             while true {
                 let transition = move(rightPositions: &rightPositions, downPositions: &downPositions, grid: input)
                 transitions += 1

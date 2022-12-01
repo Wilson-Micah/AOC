@@ -52,7 +52,7 @@ extension AOC21 {
         }
         
         func part2() -> String {
-            let input = example.lines.map { line in
+            let input = input.lines.map { line in
                 Int(line.components(separatedBy: ": ")[1])!
             }
             var universes = [Score(p1Position: input[0], p2Position: input[1], p1Score: 0, p2Score: 0): 1]

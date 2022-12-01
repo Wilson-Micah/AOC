@@ -10,6 +10,7 @@ import Foundation
 struct AOC19 {}
 struct AOC20 {}
 struct AOC21 {}
+struct AOC22 {}
 
 protocol Day {
     var input: String { get }

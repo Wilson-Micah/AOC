@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7502AE372938F40900A3DA16 /* 2022-Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7502AE362938F40900A3DA16 /* 2022-Day1.swift */; };
 		75516D76276D4D7600E56211 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 75516D75276D4D7600E56211 /* Algorithms */; };
 		75516D79276D502500E56211 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75516D78276D502500E56211 /* Geometry.swift */; };
 		75516D7F276D544500E56211 /* 2020-Day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75516D7E276D544500E56211 /* 2020-Day1.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7502AE362938F40900A3DA16 /* 2022-Day1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2022-Day1.swift"; sourceTree = "<group>"; };
 		75516D78276D502500E56211 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		75516D7E276D544500E56211 /* 2020-Day1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2020-Day1.swift"; sourceTree = "<group>"; };
 		75516D80276D560300E56211 /* 2021-Day5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "2021-Day5.swift"; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7502AE352938F3E100A3DA16 /* 2022 */ = {
+			isa = PBXGroup;
+			children = (
+				7502AE362938F40900A3DA16 /* 2022-Day1.swift */,
+			);
+			path = 2022;
+			sourceTree = "<group>";
+		};
 		75516D77276D4F3100E56211 /* 2021 */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +212,7 @@
 				75F415D9276A8F500096D378 /* DataStructures */,
 				75516D7D276D542800E56211 /* 2020 */,
 				75516D77276D4F3100E56211 /* 2021 */,
+				7502AE352938F3E100A3DA16 /* 2022 */,
 			);
 			path = AOC;
 			sourceTree = "<group>";
@@ -286,6 +297,7 @@
 				75516DA5276D5B7200E56211 /* 2020-Day2.swift in Sources */,
 				75516DA1276D560300E56211 /* 2021-Day1.swift in Sources */,
 				75516DA2276D560300E56211 /* 2021-Day16.swift in Sources */,
+				7502AE372938F40900A3DA16 /* 2022-Day1.swift in Sources */,
 				75516DBF2772989700E56211 /* 2020-Day12.swift in Sources */,
 				75516DB127701DEF00E56211 /* 2020-Day7.swift in Sources */,
 				75516D9D276D560300E56211 /* 2021-Day18.swift in Sources */,
