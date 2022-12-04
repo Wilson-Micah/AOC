@@ -52,7 +52,7 @@ func runAllDays() {
 //runAllDays()
 
 let startDate = Date()
-let day = AOC22.Day2()
+let day = AOC22.Day4()
 let part1 = day.part1()
 let part2 = day.part2()
 

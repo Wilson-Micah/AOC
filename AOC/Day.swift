@@ -60,6 +60,10 @@ public extension String {
         components(separatedBy: ",")
     }
     
+    var dashes: [String] {
+        components(separatedBy: "-")
+    }
+    
     var columns: [[String]] {
         let lines = components(separatedBy: .newlines)
         return (lines[0].indices).reduce(into: [[String]]()) { partialResult, index in
