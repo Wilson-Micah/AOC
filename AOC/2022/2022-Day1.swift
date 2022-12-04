@@ -11,8 +11,8 @@ import Foundation
 extension AOC22 {
     struct Day1: Day {
         func part1() -> String {
-            let data = input.blankLines.map { elf in elf.lines.ints.reduce(into: 0, +=) }
-            return "\(data.max()!)"
+            let elves = input.blankLines.map { elf in elf.lines.ints.reduce(into: 0, +=) }
+            return "\(elves.max()!)"
         }
         
         func part2() -> String {
