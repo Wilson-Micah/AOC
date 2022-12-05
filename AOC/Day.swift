@@ -39,6 +39,11 @@ extension Day {
     }
 }
 
+public struct StringIndex: Hashable {
+    let index: Int
+    let character: Character
+}
+
 public extension String {
     var lines: [String] {
         components(separatedBy: .newlines)
@@ -69,6 +74,38 @@ public extension String {
         return (lines[0].indices).reduce(into: [[String]]()) { partialResult, index in
             partialResult.append(lines.map { String($0[index]) })
         }
+    }
+    
+    var columnsWithCommonDelimiter: [[String]] {
+        let lines = components(separatedBy: .newlines)
+        let indexMap = lines.reduce(into: [[StringIndex]]()) { partialResult, line in
+            partialResult.append(Array(line).enumerated().reduce(into: [StringIndex]()) { result, element in
+                result.append(.init(index: element.offset, character: element.element))
+            })
+        }
+        let commonColumns = indexMap.reduce(into: Set(indexMap[0])) { partialResult, map in
+            partialResult = partialResult.intersection(Set(map))
+        }
+        
+        var columns = Array(repeating: Array(repeating: "", count: lines.count), count: commonColumns.count + 1)
+        for line in lines.enumerated() {
+            var index = 0
+            for column in Array(line.element).enumerated() {
+                if commonColumns.contains(.init(index: column.offset, character: column.element)) {
+                    index += 1
+                    continue
+                }
+                
+                
+                columns[index][line.offset].append(column.element)
+            }
+        }
+        
+        columns = columns.map { row in
+            return row.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
+        }
+        
+        return columns
     }
     
     var gridNoSeparator: [[Int]] {
