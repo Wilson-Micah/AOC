@@ -58,6 +58,82 @@ extension Point {
             Point(x: x + 1, y: y + 1)
         ]
     }
+    
+    func directionTo(point: Point) -> Direction {
+        if point.x < x && point.y == y {
+            return .west
+        } else if point.x > x && point.y == y {
+            return .east
+        } else if point.x < x && point.y < y {
+            return .northWest
+        } else if point.x > x && point.y < y {
+            return .northEast
+        } else if point.x < x && point.y > y {
+            return .southWest
+        } else if point.x > x && point.y > y {
+            return .southEast
+        } else if point.x == x && point.y < y {
+            return .north
+        } else if point.x == x && point.y > y {
+            return .south
+        } else {
+            fatalError("Points are the same")
+        }
+        
+    }
+}
+
+enum Direction: Hashable {
+    case east
+    case north
+    case south
+    case west
+    case northEast
+    case northWest
+    case southEast
+    case southWest
+    
+    mutating func turnLeft() {
+        switch self {
+        case .east:
+            self = .north
+        case .north:
+            self = .west
+        case .west:
+            self = .south
+        case .south:
+            self = .east
+        case .northEast:
+            self = .northWest
+        case .northWest:
+            self = .southWest
+        case .southEast:
+            self = .northEast
+        case .southWest:
+            self = .southEast
+        }
+    }
+    
+    mutating func turnRight() {
+        switch self {
+        case .east:
+            self = .south
+        case .north:
+            self = .east
+        case .west:
+            self = .north
+        case .south:
+            self = .west
+        case .northEast:
+            self = .southEast
+        case .northWest:
+            self = .northEast
+        case .southEast:
+            self = .southWest
+        case .southWest:
+            self = .northWest
+        }
+    }
 }
 
 struct Line: Hashable {

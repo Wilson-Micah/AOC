@@ -230,6 +230,14 @@ extension Array where Element: Collection, Element.Index == Int, Element.Element
         }
     }
     
+    func traverseMiddle(indexPath: (Point) -> Void) {
+        for col in self.indices.dropFirst().dropLast() {
+            for row in self[col].indices.dropFirst().dropLast() {
+                indexPath(Point(x: col, y: row))
+            }
+        }
+    }
+    
     func traverseAdjacent(point: Point, value: (Element.Element?) -> Void) {
         point.adjacent.forEach { point in
             if point.x < 0 || point.y < 0 || point.x >= self.count || point.y >= self[0].count {
@@ -260,6 +268,16 @@ extension Array where Element: Collection, Element.Index == Int, Element.Element
         }
     }
     
+    func traverseNeighborsWithPoint(point: Point, value: (Point?, Element.Element?) -> Void) {
+        point.neighbors.forEach { point in
+            if point.x < 0 || point.y < 0 || point.x >= self.count || point.y >= self[0].count {
+                value(nil, nil)
+            } else {
+                value(point, self[point.x][point.y])
+            }
+        }
+    }
+    
     func traverseNeighborsIncludingSelf(point: Point, value: (Element.Element?) -> Void) {
         point.neighborsInclusive.forEach { point in
             if point.x < 0 || point.y < 0 || point.x >= self.count || point.y >= self[0].count {
@@ -281,6 +299,28 @@ extension Array where Element: Collection, Element.Index == Int, Element.Element
                     value(self[pos.x][pos.y], pos)
                     found = true
                 } else {
+                    pos.x += pos.x < point.x ? -1 : 0
+                    pos.x += pos.x > point.x ? 1 : 0
+                    pos.y += pos.y < point.y ? -1 : 0
+                    pos.y += pos.y > point.y ? 1 : 0
+                }
+            }
+        }
+    }
+    
+    func traverseNeighborsInSight(point: Point, query: Set<Element.Element>, value: ((Element.Element, Point) -> Void)? = nil, reachedEnd: (() -> Void)? = nil) {
+        point.neighbors.forEach { p in
+            var pos = p
+            var found = false
+            while !found {
+                if pos.x < 0 || pos.y < 0 || pos.x >= self.count || pos.y >= self[0].count {
+                    reachedEnd?()
+                    found = true
+                } else if query.contains(self[pos.x][pos.y]) {
+                    value?(self[pos.x][pos.y], pos)
+                    found = true
+                } else {
+                    value?(self[pos.x][pos.y], pos)
                     pos.x += pos.x < point.x ? -1 : 0
                     pos.x += pos.x > point.x ? 1 : 0
                     pos.y += pos.y < point.y ? -1 : 0

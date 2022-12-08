@@ -10,39 +10,6 @@ import Foundation
 
 extension AOC20 {
     struct Day12: Day {
-        enum Direction {
-            case east
-            case north
-            case south
-            case west
-            
-            mutating func turnLeft() {
-                switch self {
-                case .east:
-                    self = .north
-                case .north:
-                    self = .west
-                case .west:
-                    self = .south
-                case .south:
-                    self = .east
-                }
-            }
-            
-            mutating func turnRight() {
-                switch self {
-                case .east:
-                    self = .south
-                case .north:
-                    self = .east
-                case .west:
-                    self = .north
-                case .south:
-                    self = .west
-                }
-            }
-        }
-        
         struct Ship {
             var position = Point(x: 0, y: 0)
             var direction = Direction.east
@@ -58,6 +25,8 @@ extension AOC20 {
                     position.y -= amount
                 case .west:
                     position.x -= amount
+                default:
+                    break
                 }
             }
             
@@ -76,6 +45,8 @@ extension AOC20 {
                     waypoint.y -= amount
                 case .west:
                     waypoint.x -= amount
+                default:
+                    break
                 }
             }
             
