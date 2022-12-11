@@ -211,6 +211,17 @@ extension Array where Element == [String] {
         }
         print(string)
     }
+    
+    var grid: String {
+        var string = "\n"
+        for col in self {
+            for row in col {
+                string += row
+            }
+            string += "\n"
+        }
+        return string
+    }
 }
 
 extension Array where Element: Collection, Element.Index == Int, Element.Element: Hashable {
