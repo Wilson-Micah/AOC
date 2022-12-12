@@ -118,6 +118,16 @@ public extension String {
             }
     }
     
+    var gridNoSeparatorStrings: [[String]] {
+        components(separatedBy: .newlines)
+            .map {
+                Array($0)
+            }
+            .map { row in
+                row.map { String($0) }
+            }
+    }
+    
     func matchesCharacters(of string: String) -> Bool {
         Set(Array(self)) == Set(Array(string))
     }
@@ -343,11 +353,15 @@ extension Array where Element: Collection, Element.Index == Int, Element.Element
 }
 
 extension Array where Element == [Int] {
-    func shortestPath(start: Point, end: Point) -> Int {
-        dijkstras(start: start, end: end)
+    func shortestPath(start: Point, end: Point, canStep: ((_ from: Point, _ to: Point) -> Bool) = { _, _ in true }) -> Int {
+        dijkstras(start: start, ends: [end], canStep: canStep)
     }
     
-    func dijkstras(start: Point, end: Point) -> Int {
+    func shortestPath(start: Point, ends: Set<Point>, canStep: ((_ from: Point, _ to: Point) -> Bool) = { _, _ in true }) -> Int {
+        dijkstras(start: start, ends: ends, canStep: canStep)
+    }
+    
+    func dijkstras(start: Point, ends: Set<Point>, canStep: ((_ from: Point, _ to: Point) -> Bool) = { _, _ in true }) -> Int {
         var seen = Set<Point>()
         var queue = Heap(array: [(start, 0)], sort: { $0.1 < $1.1 })
         var count = 0
@@ -355,7 +369,7 @@ extension Array where Element == [Int] {
             count += 1
             let (pos, distance) = queue.peek()!
             queue.remove()
-            if pos == end {
+            if ends.contains(pos) {
                 return distance
             }
             
@@ -365,19 +379,19 @@ extension Array where Element == [Int] {
             
             seen.insert(pos)
             
-            if pos.x > 0, !seen.contains(.init(x: pos.x - 1, y: pos.y)) {
+            if pos.x > 0, !seen.contains(.init(x: pos.x - 1, y: pos.y)), canStep(pos, .init(x: pos.x - 1, y: pos.y)) {
                 queue.insert((Point(x: pos.x - 1, y: pos.y), distance + self[pos.x - 1][pos.y]))
             }
             
-            if pos.y > 0, !seen.contains(.init(x: pos.x, y: pos.y - 1)) {
+            if pos.y > 0, !seen.contains(.init(x: pos.x, y: pos.y - 1)), canStep(pos, .init(x: pos.x, y: pos.y - 1)) {
                 queue.insert((Point(x: pos.x, y: pos.y - 1), distance + self[pos.x][pos.y - 1]))
             }
             
-            if pos.x < self.count - 1, !seen.contains(.init(x: pos.x + 1, y: pos.y)) {
+            if pos.x < self.count - 1 && !seen.contains(.init(x: pos.x + 1, y: pos.y)) && canStep(pos, .init(x: pos.x + 1, y: pos.y)) {
                 queue.insert((Point(x: pos.x + 1, y: pos.y), distance + self[pos.x + 1][pos.y]))
             }
             
-            if pos.y < self.last!.count - 1, !seen.contains(.init(x: pos.x, y: pos.y + 1)) {
+            if pos.y < self.last!.count - 1, !seen.contains(.init(x: pos.x, y: pos.y + 1)), canStep(pos, .init(x: pos.x, y: pos.y + 1)) {
                 queue.insert((Point(x: pos.x, y: pos.y + 1), distance + self[pos.x][pos.y + 1]))
             }
         }
