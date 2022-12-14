@@ -158,3 +158,112 @@ struct Line: Hashable {
         Array(points.intersection(line.points))
     }
 }
+
+protocol PointProtocol: Hashable {
+    func isTouching(point: Self) -> Bool
+    var adjacentCubes: Set<Self> { get }
+}
+
+struct Point3D: PointProtocol {
+    var x: Int
+    var y: Int
+    var z: Int
+    
+    var manhatten: Int {
+        x + y + z
+    }
+    
+    var rotateX: Point3D {
+        return .init(x: -y, y: x, z: z)
+    }
+    
+    var rotateY: Point3D {
+        return .init(x: x, y: -z, z: y)
+    }
+    
+    var rotateZ: Point3D {
+        return .init(x: z, y: y, z: -x)
+    }
+    
+    var rotations: Array<Rotation> {
+        var points = [Rotation]()
+        var uniquePoints = Set<Point3D>()
+        var point = self
+        for x in 0...3 {
+            for y in 0...3 {
+                for z in 0...3 {
+                    if uniquePoints.insert(point).inserted {
+                        points.append(.init(point: point, rotation: .init(x: x, y: y, z: z)))
+                    }
+                    point = point.rotateZ
+                }
+                point = point.rotateY
+            }
+            point = point.rotateX
+        }
+        return points
+    }
+    
+    func offset(point: Point3D) -> Point3D {
+        .init(x: point.x + x, y: point.y + y, z: point.z + z)
+    }
+    
+    func applyingRotation(point: Point3D) -> Point3D {
+        var rotatedPoint = self
+        for _ in 0..<point.x {
+            rotatedPoint = rotatedPoint.rotateX
+        }
+        for _ in 0..<point.y {
+            rotatedPoint = rotatedPoint.rotateY
+        }
+        for _ in 0..<point.z {
+            rotatedPoint = rotatedPoint.rotateZ
+        }
+        return rotatedPoint
+    }
+    
+    func isTouching(point: Point3D) -> Bool {
+        return abs(point.x - x) <= 1 && abs(point.y - y) <= 1 && abs(point.z - z) <= 1
+    }
+    
+    var adjacentCubes: Set<Point3D> {
+        var points = Set<Point3D>()
+        for x in -1...1 {
+            for y in -1...1 {
+                for z in -1...1 {
+                    points.insert(.init(x: self.x + x, y: self.y + y, z: self.z + z))
+                }
+            }
+        }
+        return points.subtracting([self])
+    }
+}
+
+struct Point4D: PointProtocol {
+    var w: Int
+    var x: Int
+    var y: Int
+    var z: Int
+    
+    var manhatten: Int {
+        w + x + y + z
+    }
+    
+    func isTouching(point: Point4D) -> Bool {
+        abs(point.w - w) <= 1 && abs(point.x - x) <= 1 && abs(point.y - y) <= 1 && abs(point.z - z) <= 1
+    }
+    
+    var adjacentCubes: Set<Point4D> {
+        var points = Set<Point4D>()
+        for w in -1...1 {
+            for x in -1...1 {
+                for y in -1...1 {
+                    for z in -1...1 {
+                        points.insert(.init(w: self.w + w, x: self.x + x, y: self.y + y, z: self.z + z))
+                    }
+                }
+            }
+        }
+        return points.subtracting([self])
+    }
+}
