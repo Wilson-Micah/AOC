@@ -192,6 +192,22 @@ public extension String {
         }
         return ""
     }
+    
+    func findParens() -> String {
+        var count = 0
+        for index in indices {
+            if self[index] == "(" {
+                count += 1
+            } else if self[index] == ")" {
+                if count == 1 {
+                    return String(self[startIndex...index])
+                } else {
+                    count -= 1
+                }
+            }
+        }
+        return ""
+    }
 }
 
 extension String.Element {
