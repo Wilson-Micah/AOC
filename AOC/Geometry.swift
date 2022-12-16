@@ -81,6 +81,10 @@ extension Point {
         }
         
     }
+    
+    func manhattenTo(point: Point) -> Int {
+        return abs(point.x - x) + abs(point.y - y)
+    }
 }
 
 enum Direction: Hashable {

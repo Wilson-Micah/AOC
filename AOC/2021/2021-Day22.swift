@@ -22,6 +22,14 @@ extension ClosedRange where Bound == Int {
             return [self]
         }
     }
+    
+    func unioned(_ range: ClosedRange<Int>) -> ClosedRange<Int> {
+        return Swift.min(self.lowerBound, range.lowerBound)...Swift.max(self.upperBound, range.upperBound)
+    }
+    
+    mutating func formUnion(_ range: ClosedRange<Int>) {
+        self = unioned(range)
+    }
 }
 
 extension AOC21 {
