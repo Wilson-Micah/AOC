@@ -52,10 +52,9 @@ func runAllDays() {
 //runAllDays()
 
 let startDate = Date()
-let day = AOC20.Day19()
+let day = AOC22.Day17()
 let part1 = day.part1()
-let part2 = day.part2()
-
 print("Part 1:", part1)
+let part2 = day.part2()
 print("Part 2:", part2)
 print("Completed in", Date().timeIntervalSince(startDate))

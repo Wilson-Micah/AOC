@@ -78,7 +78,7 @@ extension AOC22 {
         }
         
         func part2() -> String {
-            var dividers = ["[[2]]", "[[6]]"]
+            let dividers = ["[[2]]", "[[6]]"]
             var input = input.blankLines.flatMap { $0.lines }
             input.append(contentsOf: dividers)
             

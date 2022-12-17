@@ -56,8 +56,6 @@ extension AOC22 {
                 beacons[.init(x: beaconX, y: beaconY), default: []].append(.init(x: sensorX, y: sensorY))
             }
             
-            let b = Array<Point>(beacons.keys)
-            
             var trapazoids = [Trapazoid]()
             for (beacon, sensors) in beacons {
                 for sensor in sensors {
