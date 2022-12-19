@@ -241,6 +241,28 @@ struct Point3D: PointProtocol {
         }
         return points.subtracting([self])
     }
+    
+    var touchingCubes: Set<Point3D> {
+        Set([
+            Point3D(x: self.x + 1, y: self.y, z: self.z),
+            Point3D(x: self.x - 1, y: self.y, z: self.z),
+            Point3D(x: self.x, y: self.y + 1, z: self.z),
+            Point3D(x: self.x, y: self.y - 1, z: self.z),
+            Point3D(x: self.x, y: self.y, z: self.z + 1),
+            Point3D(x: self.x, y: self.y, z: self.z - 1)
+        ])
+    }
+    
+    func hasKnownOutlet(_ point: Set<Point3D>) -> Bool {
+       ![
+        point.contains(where: { $0.x < x && $0.y == y && $0.z == z }),
+        point.contains(where: { $0.x > x && $0.y == y && $0.z == z }),
+        point.contains(where: { $0.y < y && $0.x == x && $0.z == z }),
+        point.contains(where: { $0.y > y && $0.x == x && $0.z == z }),
+        point.contains(where: { $0.z > z && $0.y == y && $0.x == x }),
+        point.contains(where: { $0.z < z && $0.y == y && $0.x == x })
+       ].allSatisfy { $0 }
+    }
 }
 
 struct Point4D: PointProtocol {
