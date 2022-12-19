@@ -145,7 +145,7 @@ extension AOC22 {
                 Blueprint.advanceToNextRobot(blueprint: $0, index: -1, time: 32)
             }
             
-            return "\(scores)"
+            return "\(scores.reduce(into: 1, *=))"
         }
     }
 }
