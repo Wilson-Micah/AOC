@@ -208,6 +208,23 @@ public extension String {
         }
         return ""
     }
+    
+    mutating func removeParen() {
+        self.removeFirst()
+        var count = 0
+        for index in indices {
+            if self[index] == "(" {
+                count += 1
+            } else if self[index] == ")" {
+                if count == 0 {
+                    self.remove(at: index)
+                    return
+                } else {
+                    count -= 1
+                }
+            }
+        }
+    }
 }
 
 extension String.Element {

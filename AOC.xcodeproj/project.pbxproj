@@ -54,6 +54,9 @@
 		7567713C294D31370086203C /* 2022-Day17.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7567713B294D31370086203C /* 2022-Day17.swift */; };
 		7567713E294F7A500086203C /* 2022-Day18.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7567713D294F7A500086203C /* 2022-Day18.swift */; };
 		7567714029502D540086203C /* 2022-Day19.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7567713F29502D540086203C /* 2022-Day19.swift */; };
+		7567714229510D410086203C /* 2022-Day20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7567714129510D410086203C /* 2022-Day20.swift */; };
+		7567714429536A220086203C /* 2022-Day21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7567714329536A220086203C /* 2022-Day21.swift */; };
+		7567714729536E2F0086203C /* EquationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7567714629536E2F0086203C /* EquationKit */; };
 		75A12966293D09DC00B34CA5 /* 2022-Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A12965293D09DC00B34CA5 /* 2022-Day2.swift */; };
 		75A12968293D0C9E00B34CA5 /* 2022-Day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A12967293D0C9E00B34CA5 /* 2022-Day3.swift */; };
 		75A1296A293D11DD00B34CA5 /* 2022-Day4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A12969293D11DD00B34CA5 /* 2022-Day4.swift */; };
@@ -137,6 +140,8 @@
 		7567713B294D31370086203C /* 2022-Day17.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2022-Day17.swift"; sourceTree = "<group>"; };
 		7567713D294F7A500086203C /* 2022-Day18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2022-Day18.swift"; sourceTree = "<group>"; };
 		7567713F29502D540086203C /* 2022-Day19.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2022-Day19.swift"; sourceTree = "<group>"; };
+		7567714129510D410086203C /* 2022-Day20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2022-Day20.swift"; sourceTree = "<group>"; };
+		7567714329536A220086203C /* 2022-Day21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2022-Day21.swift"; sourceTree = "<group>"; };
 		75A12965293D09DC00B34CA5 /* 2022-Day2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2022-Day2.swift"; sourceTree = "<group>"; };
 		75A12967293D0C9E00B34CA5 /* 2022-Day3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2022-Day3.swift"; sourceTree = "<group>"; };
 		75A12969293D11DD00B34CA5 /* 2022-Day4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2022-Day4.swift"; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75516D76276D4D7600E56211 /* Algorithms in Frameworks */,
+				7567714729536E2F0086203C /* EquationKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +202,8 @@
 				7567713B294D31370086203C /* 2022-Day17.swift */,
 				7567713D294F7A500086203C /* 2022-Day18.swift */,
 				7567713F29502D540086203C /* 2022-Day19.swift */,
+				7567714129510D410086203C /* 2022-Day20.swift */,
+				7567714329536A220086203C /* 2022-Day21.swift */,
 			);
 			path = 2022;
 			sourceTree = "<group>";
@@ -315,6 +323,7 @@
 			name = AOC;
 			packageProductDependencies = (
 				75516D75276D4D7600E56211 /* Algorithms */,
+				7567714629536E2F0086203C /* EquationKit */,
 			);
 			productName = AOC21;
 			productReference = 75F41590275ACD800096D378 /* AOC */;
@@ -346,6 +355,7 @@
 			mainGroup = 75F41587275ACD800096D378;
 			packageReferences = (
 				75516D74276D4D7600E56211 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				7567714529536E2F0086203C /* XCRemoteSwiftPackageReference "EquationKit" */,
 			);
 			productRefGroup = 75F41591275ACD800096D378 /* Products */;
 			projectDirPath = "";
@@ -388,6 +398,7 @@
 				75516DC127729DCA00E56211 /* 2020-Day13.swift in Sources */,
 				75516D92276D560300E56211 /* 2021-Day5.swift in Sources */,
 				75516DA3276D560300E56211 /* 2021-Day17.swift in Sources */,
+				7567714429536A220086203C /* 2022-Day21.swift in Sources */,
 				75A1297C29459CA000B34CA5 /* 2022-Day11.swift in Sources */,
 				75516DA7276EEDD500E56211 /* 2020-Day3.swift in Sources */,
 				75516D79276D502500E56211 /* Geometry.swift in Sources */,
@@ -411,6 +422,7 @@
 				75516DC927758AE500E56211 /* 2021-Day24.swift in Sources */,
 				75A129762942887C00B34CA5 /* 2020-Day15.swift in Sources */,
 				75516D9E276D560300E56211 /* 2021-Day7.swift in Sources */,
+				7567714229510D410086203C /* 2022-Day20.swift in Sources */,
 				75A1298229483DB200B34CA5 /* 2022-Day13.swift in Sources */,
 				75516D7F276D544500E56211 /* 2020-Day1.swift in Sources */,
 				75516D97276D560300E56211 /* 2021-Day8.swift in Sources */,
@@ -606,6 +618,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		7567714529536E2F0086203C /* XCRemoteSwiftPackageReference "EquationKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Sajjon/EquationKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -613,6 +633,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75516D74276D4D7600E56211 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
 			productName = Algorithms;
+		};
+		7567714629536E2F0086203C /* EquationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7567714529536E2F0086203C /* XCRemoteSwiftPackageReference "EquationKit" */;
+			productName = EquationKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
