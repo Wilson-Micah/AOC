@@ -6,7 +6,6 @@
 //
 
 import Algorithms
-import EquationKit
 import Foundation
 
 extension AOC22 {
