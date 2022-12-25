@@ -59,6 +59,38 @@ extension Point {
         ]
     }
     
+    var northish: [Point] {
+        [
+            Point(x: x - 1, y: y - 1),
+            Point(x: x, y: y - 1),
+            Point(x: x + 1, y: y - 1)
+        ]
+    }
+    
+    var eastish: [Point] {
+        [
+            Point(x: x + 1, y: y - 1),
+            Point(x: x + 1, y: y),
+            Point(x: x + 1, y: y + 1)
+        ]
+    }
+    
+    var southish: [Point] {
+        [
+            Point(x: x + 1, y: y + 1),
+            Point(x: x, y: y + 1),
+            Point(x: x - 1, y: y + 1)
+        ]
+    }
+    
+    var westish: [Point] {
+        [
+            Point(x: x - 1, y: y - 1),
+            Point(x: x - 1, y: y),
+            Point(x: x - 1, y: y + 1)
+        ]
+    }
+    
     func directionTo(point: Point) -> Direction {
         if point.x < x && point.y == y {
             return .west
@@ -84,6 +116,28 @@ extension Point {
     
     func manhattenTo(point: Point) -> Int {
         return abs(point.x - x) + abs(point.y - y)
+    }
+}
+
+extension Set where Element == Point {
+    func printGrid() {
+        let minX = self.map(\.x).min()!
+        let maxX = self.map(\.x).max()!
+        let minY = self.map(\.y).min()!
+        let maxY = self.map(\.y).max()!
+        
+        var string = ""
+        for y in minY...maxY {
+            for x in minX...maxX {
+                if self.contains(.init(x: x, y: y)) {
+                    string.append("#")
+                } else {
+                    string.append(".")
+                }
+            }
+            string.append("\n")
+        }
+        print(string)
     }
 }
 
